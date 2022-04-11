@@ -1,0 +1,8 @@
+.docs-nav-sponsors
+  .title Sponsors
+  - var sponsors = getJSONData('sponsors/sponsors.json');
+  if (sponsors.goldSponsor)
+    each sponsor in sponsors.goldSponsor
+      a.sponsor(href=sponsor.link, target="_blank")
+        img(src='/i/sponsors/' + (sponsor.image_h || sponsor.image), alt=sponsor.title, title=sponsor.title)
+  include _patreon

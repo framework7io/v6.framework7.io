@@ -1,0 +1,74 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Accordion Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Accordion Vue Component
+    ul.docs-index
+    p Accordion Vue component represents Framework7's <a href="../docs/accordion.html">Accordion</a> component.
+    h2 Accordion Components
+    p There are following components included:
+    ul
+      li `f7-accordion`
+      li `f7-accordion-item`
+      li `f7-accordion-toggle`
+      li `f7-accordion-content`
+    h2 Accordion Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-accordion-item&gt; properties
+        tr
+          td opened
+          td boolean
+          td
+          td Makes accordion item opened
+
+    h2 Accordion Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-accordion-item&gt; events
+        tr
+          td accordion:beforeopen
+          td Event will be triggered right before accordion content starts its opening animation. First handler argument receives `prevent` function that will prevent accordion from opening when called.
+        tr
+          td accordion:open
+          td Event will be triggered when accordion content starts its opening animation.
+        tr
+          td accordion:opened
+          td Event will be triggered after accordion content completes its opening animation.
+        tr
+          td accordion:beforeclose
+          td Event will be triggered right before accordion content starts its closing animation. First handler argument receives `prevent` function that will prevent accordion from closing when called.
+        tr
+          td accordion:close
+          td Event will be triggered when accordion content starts its closing animation.
+        tr
+          td accordion:closed
+          td Event will be triggered after accordion content completes its closing animation.
+
+    h2 Accordion List
+    p Accordion List is not a separate component, but just a particular case of using <a href="list-view.html">`<f7-list>`</a>, <a href="list-item.html">`<f7-list-item>`</a> and `<f7-accordion-content>` components.
+    p In this case accordion events will be fired on `f7-list-item`.
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/accordion.html") Examples
+      include:vueSource ../docs-demos/vue/accordion.vue

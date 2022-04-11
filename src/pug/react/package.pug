@@ -1,0 +1,65 @@
+extends ../_docs-template
+
+block vars
+  - var title = 'Framework7 React Package Structure | Framework7 Documentation';
+
+block content
+  .docs-nav
+    include ../_docs-menu-react
+  .docs-content
+    +improveDocsLink
+    h1 Framework7 React Package Structure
+    ul.docs-index
+    h2 Package
+    p Framework7 React package contains the following files and folders:
+    :code(lang="html")
+      framework7-react/
+          bundle/
+          cjs/
+            components/
+              accordion.js
+              accordion-content.js
+              ...
+            framework7-react.js
+          components/
+              accordion/
+                package.json
+              accordion-item/
+                package.json
+              ...
+          esm/
+            components/
+              accordion.js
+              accordion-content.js
+              ...
+            framework7-react.js
+
+    h2 React Plugin
+    p Framework7 React plugin provided as ES/CJS module:
+    :code(lang="js")
+      // Import Framework7 Core
+      import Framework7 from 'framework7/lite';
+      /*
+      Or import bundle with all components:
+      import Framework7 from 'framework7/lite-bundle';
+      */
+
+      // Import Framework7 React
+      import Framework7React from 'framework7-react';
+
+      // Init plugin
+      Framework7.use(Framework7React)
+
+    .important-note
+      p
+        b By default it exports only Framework7-React plugin without any React components. To import components separately, we need to use named import:
+      :code(lang="jsx")
+        import { App, View } from 'framework7-react';
+
+        export default () => (
+          <App>
+            <View>
+              ...
+            </View>
+          </App>
+        )

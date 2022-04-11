@@ -1,0 +1,85 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'react';
+  - var title = 'Radio React Component | Framework7 React Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-react
+  .docs-content
+    +improveDocsLink
+    h1 Radio React Component
+    ul.docs-index
+    p Radio React component represents <a href="../docs/radio.html">Radio</a> component.
+    h2 Radio Components
+    p There are following components included:
+    ul
+      li `Radio`
+    h2 Radio Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;Radio&gt; properties
+        tr
+          td checked
+          td boolean
+          td
+          td Defines whether the radio input is checked or not
+        tr
+          td defaultChecked
+          td boolean
+          td
+          td Defines whether the checkbox input is checked or not, for the case if it is uncontrolled component
+        tr
+          td name
+          td string<br>number
+          td
+          td Radio input name
+        tr
+          td value
+          td string<br>number<br>boolean
+          td
+          td Radio input value
+        tr
+          td disabled
+          td boolean
+          td
+          td Defines whether the radio input is disabled
+        tr
+          td readonly
+          td boolean
+          td
+          td Defines whether the radio input is readonly
+    h2 Radio Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;Radio&gt; events
+        tr
+          td change
+          td Event will be triggered when radio input state changed
+    h2 Radios List
+    p Radios List is not a separate component, but just a particular case of using <a href="list-view.html">`<List>`</a>, <a href="list-item.html">`<ListItem>`</a>.
+    :code(lang="jsx")
+          <List>
+            {/* Additional "radio" prop to enable radio list item */}
+            <ListItem radio value="check_1" name="demo-radio" checked title="Radio 1"></ListItem>
+            <ListItem radio value="check_2" name="demo-radio" title="Radio 2"></ListItem>
+          </List>
+
+    .with-device
+      h2(data-device-preview="../docs-demos/react/radio.html") Examples
+      include:reactSource ../docs-demos/react/radio.jsx

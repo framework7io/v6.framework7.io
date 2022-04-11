@@ -1,0 +1,124 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Block Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Block Vue Component
+    ul.docs-index
+    p Block Vue component represents <a href="../docs/block.html">Block / Content Block</a> element designed (mostly) to add extra formatting and required spacing for text content.
+    h2 Block Components
+    p There are following components included:
+    ul
+      li `f7-block` - main block element
+      li `f7-block-title` - block title. Can be used before Block or List View
+      li `f7-block-header` - extra header element. Can be used both inside and outside of block elements
+      li `f7-block-footer` - extra footer element. Can be used both inside and outside of block elements
+    h2 Block Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-block&gt; properties
+        tr
+          td inset
+          td boolean
+          td
+          td Makes block inset
+        tr
+          td xsmall-inset
+          td boolean
+          td
+          td Makes block inset when app width >= 480px
+        tr
+          td small-inset
+          td boolean
+          td
+          td Makes block inset when app width >= 568px
+        tr
+          td medium-inset
+          td boolean
+          td
+          td Makes block inset when app width >= 768px
+        tr
+          td large-inset
+          td boolean
+          td
+          td Makes block inset when app width >= 1024px
+        tr
+          td xlarge-inset
+          td boolean
+          td
+          td Makes block inset when app width >= 1200px
+        tr
+          td strong
+          td boolean
+          td
+          td Adds extra highlighting and padding block content
+        tr
+          td accordion-list
+          td boolean
+          td
+          td Makes block wrapper for accordion items
+        tr
+          td tabs
+          td boolean
+          td
+          td Adds additional "tabs" class to make the block tabs wrapper
+        tr
+          td tab
+          td boolean
+          td
+          td Adds additional "tab" class when block should be used as a Tab
+        tr
+          td tab-active
+          td boolean
+          td
+          td Adds additional "tab-active" class when block used as a Tab and makes it active tab
+        tr
+          td no-hairlines
+          td boolean
+          td
+          td Removes outer <a href="../docs/hairlines.html">hairlines</a>
+        tr
+          td no-hairlines-md
+          td boolean
+          td
+          td Removes outer <a href="../docs/hairlines.html">hairlines</a> for MD theme
+        tr
+          td no-hairlines-ios
+          td boolean
+          td
+          td Removes outer <a href="../docs/hairlines.html">hairlines</a> for iOS theme
+        tr
+          td no-hairlines-aurora
+          td boolean
+          td
+          td Removes outer <a href="../docs/hairlines.html">hairlines</a> for Aurora theme
+        tr
+          th(colspan="4") &lt;f7-block-title&gt; properties
+        tr
+          td medium
+          td boolean
+          td
+          td Makes block title medium size
+        tr
+          td large
+          td boolean
+          td
+          td Makes block title large size
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/block.html") Examples
+      include:vueSource ../docs-demos/vue/block.vue

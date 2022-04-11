@@ -1,0 +1,158 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'react';
+  - var title = 'Range Slider React Component | Framework7 React Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-react
+  .docs-content
+    +improveDocsLink
+    h1 Range Slider React Component
+    ul.docs-index
+    p Range Slider React component represents <a href="../docs/range-slider.html">Range Slider</a> component.
+    h2 Range Slider Components
+    p There are following components included:
+    ul
+      li `Range`
+    h2 Range Slider Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;Range&gt; properties
+        tr
+          td init
+          td boolean
+          td true
+          td Initializes Range Slider
+        tr
+          td value
+          td number<br>array<br>string
+          td
+          td Range Slider value, must be array in case of dual range slider
+        tr
+          td min
+          td number<br>string
+          td
+          td Minimum value
+        tr
+          td max
+          td number<br>string
+          td
+          td Maximum value
+        tr
+          td step
+          td number<br>string
+          td 1
+          td Minimal step between values
+        tr
+          td label
+          td boolean
+          td false
+          td Enables additional label around range slider knob
+        tr
+          td dual
+          td boolean
+          td false
+          td Enables dual range slider
+        tr
+          td vertical
+          td boolean
+          td false
+          td Enables vertical range slider
+        tr
+          td verticalReversed
+          td boolean
+          td false
+          td Makes vertical range slider reversed. (Only when `vertical:true`)
+        tr
+          td draggableBar
+          td boolean
+          td true
+          td When enabled it is also possible to interact with range slider (change value) on range bar click and swipe.
+        tr
+          td formatLabel
+          td function(<span>value</span>)
+          td
+          td Method must return formatted range knob label text. As an argument it receives label value
+        tr
+          td scale
+          td boolean
+          td false
+          td Enables range slider scale
+        tr
+          td scaleSteps
+          td number
+          td 5
+          td Number of scale steps
+        tr
+          td scaleSubSteps
+          td number
+          td 0
+          td Number of scale sub steps (each step will be divided by this value)
+        tr
+          td formatScaleLabel
+          td function (<span>value</span>)
+          td
+          td Method must return formatted scale value. As an argument it receives currect scale step value. This method will be called as for each scale step.
+        tr
+          td limitKnobPosition
+          td boolean
+          td
+          td Limits knob position to the size of the range bar. By default enabled from iOS theme
+        tr
+          td disabled
+          td boolean
+          td false
+          td Defines whether the range slider is disabled or not
+        tr
+          td id
+          td string
+          td
+          td Range slider element ID attribute
+        tr
+          td input
+          td boolean
+          td false
+          td If enabled, then it will render `input type="range"` element inside as well
+        tr
+          td inputId
+          td string
+          td
+          td Input element ID attribute
+        tr
+          td name
+          td string
+          td
+          td Input element "name" attribute
+
+
+
+    h2 Range Slider Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;Range&gt; events
+        tr
+          td rangeChange
+          td Event will be triggered when Range Slider value has been changed
+        tr
+          td rangeChanged
+          td Event will be triggered on slider knob release after value change
+
+    .with-device
+      h2(data-device-preview="../docs-demos/react/range-slider.html") Examples
+      include:reactSource ../docs-demos/react/range-slider.jsx

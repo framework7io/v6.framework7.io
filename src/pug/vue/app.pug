@@ -1,0 +1,56 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'App Vue Component | Framework7 Vue Documentation';
+
+block content
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 App Vue Component
+    ul.docs-index
+    p App Vue component is the main Framework7 app component where all the <a href="../docs/app.html">Framework7 core initialization</a> happens and where you pass all main Framework7 parameters.
+    h2 App Components
+    p There are following components included:
+    ul
+      li `f7-app`
+    h2 App Properties
+    p `f7-app` component receives all <a href="/docs/app.html#app-parameters" target="_blank">App parameters</a> as component props.
+    h2 Examples
+    :code(lang="html")
+      <template>
+        <f7-app v-bind="f7params">
+          <!-- ...  -->
+        </f7-app>
+      </template>
+
+      <script>
+        import AboutPage from './about.vue';
+        import ServicesPage from './services.vue';
+
+        export default {
+          data() {
+            return {
+              f7params: {
+                name: 'My App',
+                id: 'com.myapp.test',
+                // routes
+                routes: [
+                  {
+                    path: '/about/',
+                    component: AboutPage,
+                  },
+                  {
+                    path: '/services/',
+                    component: ServicesPage,
+                  },
+                ],
+                // ... other params
+              }
+            }
+          }
+        }
+      </script>

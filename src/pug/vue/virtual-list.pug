@@ -1,0 +1,65 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Virtual List Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Virtual List Vue Component
+    ul.docs-index
+    p Virtual List is not a separate Vue component, but just a particular case of using <a href="list-view.html">&lt;f7-list&gt;</a>, <a href="list-item.html">&lt;f7-list-item&gt;</a> Vue components and special Framework7's <a href="../docs/virtual-list.html">Virtual List</a> component.
+
+    h2 Virtual List Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-list&gt; properties
+        tr
+          td virtual-list
+          td boolean
+          td false
+          td Enables Virtual List
+        tr
+          td virtual-list-params
+          td object
+          td
+          td Object with <a href="../docs/virtual-list.html#virtual-list-parameters">Virtual List Parameters</a>
+
+    h2 Virtual List Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-list&gt; events
+        tr
+          td virtual:itembeforeinsert
+          td Event will be triggered before item will be added to virtual document fragment
+        tr
+          td virtual:itemsbeforeinsert
+          td Event will be triggered after current DOM list will be removed and before new document will be inserted
+        tr
+          td virtual:itemsafterinsert
+          td Event will be triggered after new document fragment with items inserted
+        tr
+          td virtual:beforeclear
+          td Event will be triggered before current DOM list will be removed and replaced with new document fragment
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/virtual-list.html") Examples
+      p Here is the full page example with Virtual List and Searchbar to search through Virtual List items:
+      include:vueSource ../docs-demos/vue/virtual-list.vue

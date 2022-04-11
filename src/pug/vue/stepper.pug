@@ -1,0 +1,253 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Stepper Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Stepper Vue Component
+    ul.docs-index
+    p Stepper Vue component represents <a href="../docs/stepper.html">Stepper</a> component.
+    h2 Stepper Components
+    p There are following components included:
+    ul
+      li `f7-stepper`
+    h2 Stepper Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-stepper&gt; properties
+        tr
+          td init
+          td boolean
+          td true
+          td Initializes Stepper
+        tr
+          td value
+          td number
+          td 0
+          td Stepper value
+        tr
+          td min
+          td number
+          td 0
+          td Minimum value
+        tr
+          td max
+          td number
+          td 100
+          td Maximum value
+        tr
+          td step
+          td number
+          td 1
+          td Minimal step between values
+        tr
+          td wraps
+          td boolean
+          td false
+          td When enabled, incrementing beyond maximum value sets value to minimum value; likewise, decrementing below minimum value sets value to maximum value
+        tr
+          td autorepeat
+          td boolean
+          td false
+          td When enabled it will repeatedly increase/decrease values while you tap and hold plus/minus buttons
+        tr
+          td autorepeat-dynamic
+          td boolean
+          td false
+          td When enabled it will increase autorepeat ratio based on how long you hold the button
+        tr
+          td input
+          td boolean
+          td true
+          td Defines should it render `<input>` element or not
+        tr
+          td input-readonly
+          td boolean
+          td false
+          td Makes inner input element `readonly`
+        tr
+          td name
+          td string
+          td
+          td Input element "name" attribute
+        tr
+          td buttons-only
+          td boolean
+          td false
+          td Disables inner value container between stepper buttons
+        tr
+          td format-value
+          td function(value)
+          td
+          td Custom function to format value for value element between buttons. It must return new formatted value
+        tr
+          td manual-input-mode
+          td boolean
+          td false
+          td Enables manual input mode. This mode allows to type value from keyboard and check fractional part with defined accurancy. Also, `step` parameter is ignored when typing in this mode.
+        tr
+          td decimal-point
+          td number
+          td 4
+          td Number of digits after dot, when in manual input mode.
+        tr
+          td buttons-end-input-mode
+          td boolean
+          td true
+          td Disables manual input mode on Stepper's minus or plus button click.
+        tr
+          td disabled
+          td boolean
+          td false
+          td Defines whether the stepper is disabled or not
+        tr
+          td round
+          td boolean
+          td false
+          td Makes stepper round
+        tr
+          td round-ios
+          td boolean
+          td false
+          td Makes stepper round for iOS theme only
+        tr
+          td round-md
+          td boolean
+          td false
+          td Makes stepper round for MD theme only
+        tr
+          td large
+          td boolean
+          td false
+          td Makes large stepper
+        tr
+          td large-ios
+          td boolean
+          td false
+          td Makes large stepper for iOS theme only
+        tr
+          td large-md
+          td boolean
+          td false
+          td Makes large stepper for MD theme only
+        tr
+          td small
+          td boolean
+          td false
+          td Makes small stepper
+        tr
+          td small-ios
+          td boolean
+          td false
+          td Makes small stepper for iOS theme only
+        tr
+          td small-md
+          td boolean
+          td false
+          td Makes small stepper for MD theme only
+        tr
+          td fill
+          td boolean
+          td false
+          td Makes stepper filled color
+        tr
+          td fill-ios
+          td boolean
+          td false
+          td Makes stepper filled color for iOS theme only
+        tr
+          td fill-md
+          td boolean
+          td false
+          td Makes stepper filled color for MD theme only
+        tr
+          td raised
+          td boolean
+          td false
+          td Makes stepper raised.
+        tr
+          td raised-ios
+          td boolean
+          td false
+          td Makes stepper raised for iOS theme.
+        tr
+          td raised-md
+          td boolean
+          td false
+          td Makes stepper raised for MD theme.
+    h2 Stepper Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-stepper&gt; events
+        tr
+          td stepper:change
+          td Event will be triggered when Stepper value has been changed
+        tr
+          td stepper:minusclick
+          td Event will be triggered on "minus" button click
+        tr
+          td stepper:plusclick
+          td Event will be triggered on "plus" button click
+        tr
+          td input
+          td Event will be triggered on input's `input` event
+    h2 Stepper Methods
+    table.methods-table
+        tr
+          th(colspan="2") &lt;f7-stepper&gt; methods
+        tr
+          td .increment()
+          td Increment stepper value, similar to clicking on its "plus" button
+        tr
+          td .decremenet()
+          td Decrement stepper value, similar to clicking on its "minus" button
+        tr
+          td .setValue(<span>newValue</span>)
+          td Set new stepper value
+        tr
+          td .getValue()
+          td Returns stepper value
+
+    h2 Stepper v-model
+    p `f7-stepper` component supports `v-model` on `value` prop:
+    ```html
+      <template>
+        <p>Value is {{ count }}</p>
+        ...
+        <f7-stepper
+          v-model:value="count"
+        />
+        ...
+      </template>
+      <script>
+        export default {
+          data() {
+            count: 1,
+          },
+          ...
+        };
+      </script>
+    ```
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/stepper.html") Examples
+      include:vueSource ../docs-demos/vue/stepper.vue

@@ -1,0 +1,37 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Contacts List Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Contacts List Vue Component
+    ul.docs-index
+    p Contacts List is not a separate component, but just a particular case of using <a href="list-view.html">&lt;f7-list&gt;</a> and <a href="list-item.html">&lt;f7-list-item&gt;</a> components.
+
+    h2 Contacts List Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-list&gt; properties
+        tr
+          td contacts-list
+          td boolean
+          td false
+          td Adds required additional styles for Contacts List
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/contacts-list.html") Examples
+      include:vueSource ../docs-demos/vue/contacts-list.vue

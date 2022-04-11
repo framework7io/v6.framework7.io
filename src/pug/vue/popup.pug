@@ -1,0 +1,142 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Popup Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Popup Vue Component
+    ul.docs-index
+    p Popup is a popup window with any HTML content that pops up over App's main content. Popup as all other overlays is part of so called "Temporary Views".
+    p Popup Vue component represents <a href="../docs/popup.html">Popup</a> component.
+    h2 Popup Components
+    p There are following components included:
+    ul
+      li `f7-popup` - popup element
+    h2 Popup Properties
+    table.params-table.cols-3
+      thead
+        tr
+          th Prop
+          th Type
+          th Description
+      tbody
+        tr
+          th(colspan="3") &lt;f7-popup&gt; properties
+        tr
+          td tablet-fullscreen
+          td boolean
+          td Defines whether the popup should be displayed fullscreen on tablets or not
+        tr
+          td opened
+          td boolean
+          td Allows to open/close Popup and set its initial state
+        tr
+          td backdrop
+          td boolean
+          td Enables Popup backdrop (dark semi transparent layer behind). By default inherits same app parameter value (`true`)
+        tr
+          td backdrop-el
+          td string<br>object
+          td HTML element or string CSS selector of custom backdrop element
+        tr
+          td close-by-backdrop-click
+          td boolean
+          td When enabled, popup will be closed on backdrop click. By default inherits same app parameter value (`true`)
+        tr
+          td close-on-escape
+          td boolean
+          td When enabled, popup will be closed on ESC keyboard key press
+        tr
+          td animate
+          td boolean
+          td Whether the Popup should be opened/closed with animation or not. Can be overwritten in `.open()` and `.close()` methods. By default inherits same app parameter value (`true`)
+        tr
+          td swipe-to-close
+          td boolean<br>string
+          td Whether the Popup can be closed with swipe gesture. Can be `true` to allow to close popup with swipes to top and to bottom, or can be `to-top` (string) to allow only swipe to top to close popup, or `to-bottom` (string) to allow only swipe to bottom to close.
+        tr
+          td swipe-handler
+          td HTMLElement<br>string
+          td If not passed, then whole popup can be swiped to close. You can pass here HTML element or string CSS selector of custom element that will be used as a swipe target. (`swipeToClose` must be also enabled)
+        tr
+          td push
+          td boolean
+          td When enabled it will push view behind on open. Works only when top safe area is in place. It can also be enabled by adding `popup-push` class to Popup element.
+        tr
+          td container-el
+          td HTMLElement<br>string
+          td Element to mount modal to (default to app root element)
+
+    h2 Popup Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-popup&gt; events
+        tr
+          td popup:open
+          td Event will be triggered when Popup starts its opening animation
+        tr
+          td popup:opened
+          td Event will be triggered after Popup completes its opening animation
+        tr
+          td popup:close
+          td Event will be triggered when Popup starts its closing animation
+        tr
+          td popup:closed
+          td Event will be triggered after Popup completes its closing animation
+        tr
+          td popup:swipestart
+          td Event will be triggered in the beginning of swipe-to-close interaction (when user just started to drag popup)
+        tr
+          td popup:swipemove
+          td Event will be triggered on swipe-to-close move interaction
+        tr
+          td popup:swipeend
+          td Event will be triggered on swipe-to-close release
+        tr
+          td popup:swipeclose
+          td Event will be triggered when popup closed with swipe
+
+    h2 Popup v-model
+    p Popup component supports `v-model` on `opened` prop:
+    ```html
+      <template>
+        <f7-page>
+          <f7-popup v-model:opened="isOpened">
+            ...
+          </f7-popup>
+          <p>Modal is opened: {{ isOpened }}</p>
+        </f7-page>
+      </template>
+      <script>
+        export default {
+          data() {
+            return {
+              isOpened: false,
+            };
+          }
+        };
+      </script>
+    ```
+
+    h2 Open And Close Popup
+    p You can control Popup state, open and closing it:
+    ul
+      li using <a href="../docs/popup.html">Popup API</a>
+      li by passing `true` or `false` to its `opened` prop
+      li by clicking on <a href="link.html">Link</a> or <a href="button.html">Button</a> with relevant `popup-open` property (to open it) and `popup-close` property to close it
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/popup.html") Examples
+      include:vueSource ../docs-demos/vue/popup.vue

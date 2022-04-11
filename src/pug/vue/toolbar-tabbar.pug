@@ -1,0 +1,184 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Toolbar Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Toolbar Vue Component
+    ul.docs-index
+    p Toolbar is a fixed (with Fixed and Through layout types) area at the bottom of a screen that contains navigation elements. Toolbar does not have any parts, just plain links inside
+    p Toolbar Vue component represents <a href="../docs/toolbar-tabbar.html">Toolbar</a> component.
+
+    h2 Toolbar Components
+    p There are following components included:
+    ul
+      li `f7-toolbar`
+
+    h2 Toolbar Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-toolbar&gt; properties
+        tr
+          td inner
+          td boolean
+          td true
+          td When enabled (by default), it will put all the content within internal `toolbar-inner` element. Disable it only in case you want to put totally custom layout inside
+        tr
+          td position
+          td string
+          td
+          td #[a(href="/docs/toolbar-tabbar.html#toolbar-position") Toolbar position], can be `top` or `bottom`
+        tr
+          td top
+          td boolean
+          td
+          td Top positioned toolbar. Shortening for `position="top"`
+        tr
+          td top-ios
+          td boolean
+          td
+          td Top positioned toolbar only for iOS theme
+        tr
+          td top-md
+          td boolean
+          td
+          td Top positioned toolbar only for MD theme
+        tr
+          td top-aurora
+          td boolean
+          td
+          td Top positioned toolbar only for Aurora theme
+        tr
+          td bottom
+          td boolean
+          td
+          td Bottom positioned toolbar. Shortening for `position="bottom"`
+        tr
+          td bottom-ios
+          td boolean
+          td
+          td Bottom positioned toolbar only for iOS theme
+        tr
+          td bottom-md
+          td boolean
+          td
+          td Bottom positioned toolbar only for MD theme
+        tr
+          td bottom-aurora
+          td boolean
+          td
+          td Bottom positioned toolbar only for Aurora theme
+        tr
+          td tabbar
+          td boolean
+          td false
+          td Defines whether the Toolbar is also a Tabbar or not
+        tr
+          td labels
+          td boolean
+          td false
+          td Enables Tabbar with labels (affects only when `tabbar: true`)
+        tr
+          td scrollable
+          td boolean
+          td false
+          td Enables scrollable Tabbar (affects only when `tabbar: true`)
+        tr
+          td no-shadow
+          td boolean
+          td
+          td Disable shadow rendering for Material theme
+        tr
+          td no-hairline
+          td boolean
+          td false
+          td Disable toolbar/tabbar top thin border (hairline) for iOS theme
+        tr
+          td hidden
+          td boolean
+          td false
+          td Makes toolbar hidden
+
+    h2 Toolbar Methods
+    table.methods-table
+      tr
+        th(colspan="2") &lt;f7-toolbar&gt; methods
+      tr
+        td .hide(<span>animate</span>)
+        td Hide toolbar
+      tr
+        td .show(<span>animate</span>)
+        td Show toolbar
+
+    h2 Toolbar Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-toolbar&gt; events
+        tr
+          td toolbar:hide
+          td Event will be triggered when Toolbar becomes hidden
+        tr
+          td toolbar:show
+          td Event will be triggered when Toolbar becomes visible
+
+    h2 Toolbar Slots
+    p Toolbar Vue component (`<f7-toolbar>`) has additional slots for custom elements:
+    ul
+      li `default` - element will be inserted as a child of `<div class="toolbar-inner">` element
+      li `before-inner` - element will be inserted right before `<div class="toolbar-inner">` element
+      li `after-inner` - element will be inserted right after `<div class="toolbar-inner">` element
+    :code(lang="html")
+          <f7-toolbar>
+            <div slot="before-inner">Before Inner</div>
+            <div slot="after-inner">After Inner</div>
+            <!-- Goes to default slot: -->
+            <f7-link>Left Link</f7-link>
+            <f7-link>Right Link</f7-link>
+          </f7-toolbar>
+
+          <!-- Renders to: -->
+
+          <div class="toolbar">
+            <div>Before Inner</div>
+            <div class="toolbar-inner">
+              <a href="#" class="link">Left Link</a>
+              <a href="#" class="link">Right Link</a>
+            </div>
+            <div>After Inner</div>
+          </div>
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/toolbar-tabbar.html") Examples
+      h3 Toolbar
+      include:vueSource ../docs-demos/vue/toolbar-tabbar_toolbar.vue
+
+      h3 Tabbar
+      include:vueSource ../docs-demos/vue/toolbar-tabbar_tabbar.vue
+
+      h3 Tabbar Labels
+      include:vueSource ../docs-demos/vue/toolbar-tabbar_tabbar-labels.vue
+
+      h3 Tabbar Scrollable
+      include:vueSource ../docs-demos/vue/toolbar-tabbar_tabbar-scrollable.vue
+
+      h3 Hide Toolbar On Scroll
+      include:vueSource ../docs-demos/vue/toolbar-tabbar_toolbar-hide-scroll.vue

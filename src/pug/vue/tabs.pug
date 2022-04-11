@@ -1,0 +1,95 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Tabs Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Tabs Vue Component
+    ul.docs-index
+    p Tabs allow to simply switch between different content. Tabs Vue component represents <a href="../docs/tabs.html">Tabs</a> component.
+    h2 Tabs Components
+    p There are following components included:
+    ul
+      li `f7-tabs`
+      li `f7-tab`
+    h2 Tabs Properties
+    table.params-table.cols-3
+      thead
+        tr
+          th Prop
+          th Type
+          th Description
+      tbody
+        tr
+          th(colspan="3") &lt;f7-tabs&gt; properties
+        tr
+          td animated
+          td boolean
+          td Enables animated tabs
+        tr
+          td swipeable
+          td boolean
+          td Enables swipeable tabs
+        tr
+          td routable
+          td boolean
+          td Enables routable tabs
+        tr
+          td swiper-params
+          td object
+          td Object with <a href="https://swiperjs.com/api/#parameters" target="_blank">Swiper parameters</a> (applies if `swipeable` enabled)
+        tr
+          th(colspan="3") &lt;f7-tab&gt; properties
+        tr
+          td tab-active
+          td boolean
+          td Defines currently active/visible tab
+        tr
+          td id
+          td string
+          td Tab ID
+    h2 Tabs Methods
+    table.methods-table
+      tr
+        th(colspan="2") &lt;f7-tab&gt; methods
+      tr
+        td .show(<span>animate</span>)
+        td Show this tab
+    h2 Tabs Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-tab&gt; events
+        tr
+          td tab:show
+          td Event will be triggered when Tab becomes visible/active
+        tr
+          td tab:hide
+          td Event will be triggered when Tab becomes invisible/inactive
+    h2 Switch Tabs
+    p You can control/switch tabs:
+    ul
+      li by clicking on <a href="button.html">Button</a> or <a href="link.html">Link</a> specifying related tab's ID using `tab-link` prop
+      li using <a href="../docs/tabs.html">Tabs API</a>
+      li using <a href="../docs/tabs.html#routable-tabs">Routable Tabs</a>
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/tabs.html") Examples
+      h3 Static Tabs
+      include:vueSource ../docs-demos/vue/tabs_static.vue
+
+      h3 Animated Tabs
+      include:vueSource ../docs-demos/vue/tabs_animated.vue
+
+      h3 Swipeable Tabs
+      include:vueSource ../docs-demos/vue/tabs_swipeable.vue

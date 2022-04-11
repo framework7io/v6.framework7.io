@@ -1,0 +1,132 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Popover Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Popover Vue Component
+    ul.docs-index
+    p Popover component is used to manage the presentation of content in a popover. You use popovers to present information temporarily. The popover remains visible until the user taps outside of the popover window or you explicitly dismiss it.
+    p Popover Vue component represents <a href="../docs/popover.html">Popover</a> component.
+    h2 Popover Components
+    p There are following components included:
+    ul
+      li `f7-popover`
+    h2 Popover Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-popover&gt; properties
+        tr
+          td opened
+          td boolean
+          td false
+          td Allows to open/close Popover and set its initial state
+        tr
+          td target-el
+          td string<br>object
+          td
+          td HTML element or string CSS selector of Popover target element
+        tr
+          td backdrop
+          td boolean
+          td
+          td Enables Popover backdrop (dark semi transparent layer behind). By default inherits same app parameter value (`true`)
+        tr
+          td backdrop-el
+          td string<br>object
+          td
+          td HTML element or string CSS selector of custom backdrop element
+        tr
+          td close-by-backdrop-click
+          td boolean
+          td true
+          td When enabled, popover will be closed on backdrop click. By default inherits same app parameter value
+        tr
+          td close-by-outside-click
+          td boolean
+          td true
+          td When enabled, popover will be closed on when click outside of it. By default inherits same app parameter value
+        tr
+          td close-on-escape
+          td boolean
+          td false
+          td When enabled, popover will be closed on ESC keyboard key press
+        tr
+          td animate
+          td boolean
+          td
+          td Whether the modal should be opened/closed with animation or not
+        tr
+          td container-el
+          td HTMLElement<br>string
+          td
+          td Element to mount modal to (default to app root element)
+
+    h2 Popover Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-popover&gt; events
+        tr
+          td popover:open
+          td Event will be triggered when Popover starts its opening animation
+        tr
+          td popover:opened
+          td Event will be triggered after Popover completes its opening animation
+        tr
+          td popover:close
+          td Event will be triggered when Popover starts its closing animation
+        tr
+          td popover:closed
+          td Event will be triggered after Popover completes its closing animation
+
+    h2 Popover v-model
+    p Popover component supports `v-model` on `opened` prop:
+    ```html
+      <template>
+        <f7-page>
+          <f7-popover v-model:opened="isOpened">
+            ...
+          </f7-popover>
+          <p>Modal is opened: {{ isOpened }}</p>
+        </f7-page>
+      </template>
+      <script>
+        export default {
+          data() {
+            return {
+              isOpened: false,
+            };
+          }
+        };
+      </script>
+    ```
+
+    h2 Open And Close Popover
+    p You can control Popover state, open and closing it:
+    ul
+      li using <a href="../docs/popover.html">Popover API</a>
+      li by passing `true` or `false` to its `opened` prop
+      li by clicking on <a href="link.html">Link</a> or <a href="button.html">Button</a> with relevant `popover-open` property (to open it) and `popover-close` property to close it
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/popover.html") Examples
+      include:vueSource ../docs-demos/vue/popover.vue

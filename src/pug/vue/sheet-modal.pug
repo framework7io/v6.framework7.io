@@ -1,0 +1,187 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Sheet Modal Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Sheet Modal Vue Component
+    ul.docs-index
+    p Sheet Modal is a special overlay type which is similar to Picker/Calendar's overlay. Such modal allows to create custom picker overlays with custom content.
+    p Sheet Modal Vue component represents <a href="../docs/sheet-modal.html">Sheet Modal</a> component.
+    h2 Sheet Modal Components
+    p There are following components included:
+    ul
+      li `f7-sheet` - sheet modal element
+    h2 Sheet Modal Properties
+    table.params-table.cols-3
+      thead
+        tr
+          th Prop
+          th Type
+          th Description
+      tbody
+        tr
+          th(colspan="3") &lt;f7-sheet&gt; properties
+        tr
+          td position
+          td string
+          td Sheet position, can be `top` or `bottom`. By default is `bottom`
+        tr
+          td top
+          td boolean
+          td Same as `position="top"`
+        tr
+          td bottom
+          td boolean
+          td Same as `position="bottom"`
+        tr
+          td backdrop
+          td boolean
+          td Enable to render additional sheet modal backdrop when required
+        tr
+          td backdrop-el
+          td string<br>object
+          td HTML element or string CSS selector of custom backdrop element
+        tr
+          td opened
+          td boolean
+          td Allows to open/close Sheet Modal and set its initial state
+        tr
+          td close-by-backdrop-click
+          td boolean
+          td When enabled, sheet will be closed on backdrop click. By default inherits same app parameter value
+        tr
+          td close-by-outside-click
+          td boolean
+          td When enabled, sheet will be closed on when click outside of it. By default inherits same app parameter value
+        tr
+          td close-on-escape
+          td boolean
+          td When enabled, sheet will be closed on ESC keyboard key press
+        tr
+          td swipe-to-close
+          td boolean
+          td Whether the Sheet can be closed with swipe gesture
+        tr
+          td swipe-to-step
+          td boolean
+          td When enabled it will be possible to split opened sheet into two states: partially opened and fully opened that can be controlled with swipe
+        tr
+          td swipe-handler
+          td HTMLElement<br>string
+          td If not passed, then whole Sheet can be swiped to close. You can pass here HTML element or string CSS selector of custom element that will be used as a swipe target. (`swipeToClose` or `swipeToStep` must be also enabled)
+        tr
+          td push
+          td boolean
+          td When enabled it will push view behind on open. Works only when top safe area is in place. It can also be enabled by adding `sheet-modal-push` class to Sheet element.
+        tr
+          td animate
+          td boolean
+          td
+          td Whether the modal should be opened/closed with animation or not
+        tr
+          td container-el
+          td HTMLElement<br>string
+          td
+          td Element to mount modal to (default to app root element)
+
+    h2 Sheet Modal Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-sheet&gt; events
+        tr
+          td sheet:open
+          td Event will be triggered when Sheet Modal starts its opening animation
+        tr
+          td sheet:opened
+          td Event will be triggered after Sheet Modal completes its opening animation
+        tr
+          td sheet:close
+          td Event will be triggered when Sheet Modal starts its closing animation
+        tr
+          td sheet:closed
+          td Event will be triggered after Sheet Modal completes its closing animation
+        tr
+          td sheet:stepopen
+          td Event will be triggered on Sheet swipe step open/expand
+        tr
+          td sheet:stepclose
+          td Event will be triggered on Sheet swipe step close/collapse
+        tr
+          td sheet:stepprogress
+          td Event will be triggered on Sheet swipe step between step opened and closed state. As `event.detail` it receives step open progress number (from `0` to `1`)
+
+
+    h2 Sheet Modal Slots
+    p `<f7-sheet>` component has additional slots for custom elements:
+    ul
+      li `default` - element will be inserted as a child of scrollable `<div class="sheet-modal-inner">` element
+      li `static` - same as `default`
+      li `fixed` - element will be inserted before the scrollable `<div class="sheet-modal-inner">` element
+
+    ```html
+      <f7-sheet>
+        <template #fixed>
+          <span>Fixed slot</span>
+        </template>
+        <template #static>
+          <span>Static slot</span>
+        </template>
+        <span>Default slot</span>
+      </f7-sheet>
+    ```
+    p Renders to
+    ```html
+      <div class="sheet-modal">
+        <span>Fixed slot</span>
+        <div class="sheet-modal-inner">
+          <span>Default slot</span>
+          <span>Static slot</span>
+        </div>
+      </div>
+    ```
+
+    h2 Sheet Modal v-model
+    p Sheet Modal component supports `v-model` on `opened` prop:
+    ```html
+      <template>
+        <f7-page>
+          <f7-sheet v-model:opened="isOpened">
+            ...
+          </f7-sheet>
+          <p>Modal is opened: {{ isOpened }}</p>
+        </f7-page>
+      </template>
+      <script>
+        export default {
+          data() {
+            return {
+              isOpened: false,
+            };
+          }
+        };
+      </script>
+    ```
+
+    h2 Open And Close Sheet Modal
+    p You can control Sheet Modal state, open and closing it:
+    ul
+      li using its <a href="../docs/sheet-modal.html">Sheet Modal API</a>
+      li by passing `true` or `false` to its `opened` prop
+      li by clicking on <a href="link.html">Link</a> or <a href="button.html">Button</a> with relevant `sheet-open` property (to open it) and `sheet-close` property to close it
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/sheet-modal.html") Examples
+      include:vueSource ../docs-demos/vue/sheet-modal.vue

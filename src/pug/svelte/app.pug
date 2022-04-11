@@ -1,0 +1,50 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'svelte';
+  - var title = 'App Svelte Component | Framework7 Svelte Documentation';
+
+block content
+
+  .docs-nav
+    include ../_docs-menu-svelte
+  .docs-content
+    +improveDocsLink
+    h1 App Svelte Component
+    ul.docs-index
+    p App Svelte component is the main Framework7 app component where all the <a href="../docs/app.html">Framework7 core initialization</a> happens and where you pass all main Framework7 parameters.
+    h2 App Components
+    p There are following components included:
+    ul
+      li `App`
+
+    h2 App Properties
+    p `App` component receives all <a href="/docs/app.html#app-parameters" target="_blank">App parameters</a> as component props.
+
+    h2 Examples
+    :code(lang="svelte")
+      <App {...f7params}>
+        ...
+      </App>
+      <script>
+        import { App } from 'framework7-svelte';
+        import AboutPage from './about.svelte';
+        import ServicesPage from './services.svelte';
+
+        const f7params = {
+          name: 'My App',
+          id: 'com.myapp.test',
+          // routes
+          routes: [
+            {
+              path: '/about/',
+              component: AboutPage,
+            },
+            {
+              path: '/services/',
+              component: ServicesPage,
+            },
+          ],
+          // ... other params
+        }
+      </script>

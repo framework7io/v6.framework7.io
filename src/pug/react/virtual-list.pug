@@ -1,0 +1,65 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'react';
+  - var title = 'Virtual List React Component | Framework7 React Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-react
+  .docs-content
+    +improveDocsLink
+    h1 Virtual List React Component
+    ul.docs-index
+    p Virtual List is not a separate React component, but just a particular case of using <a href="list-view.html">&lt;List&gt;</a>, <a href="list-item.html">&lt;ListItem&gt;</a> React components and special Framework7's <a href="../docs/virtual-list.html">Virtual List</a> component.
+
+    h2 Virtual List Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;List&gt; properties
+        tr
+          td virtualList
+          td boolean
+          td false
+          td Enables Virtual List
+        tr
+          td virtualListParams
+          td object
+          td
+          td Object with <a href="../docs/virtual-list.html#virtual-list-parameters">Virtual List Parameters</a>
+
+    h2 Virtual List Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;List&gt; events
+        tr
+          td virtualItemBeforeInsert
+          td Event will be triggered before item will be added to virtual document fragment
+        tr
+          td virtualItemsBeforeInsert
+          td Event will be triggered after current DOM list will be removed and before new document will be inserted
+        tr
+          td virtualItemsAfterInsert
+          td Event will be triggered after new document fragment with items inserted
+        tr
+          td virtualBeforeClear
+          td Event will be triggered before current DOM list will be removed and replaced with new document fragment
+
+    .with-device
+      h2(data-device-preview="../docs-demos/react/virtual-list.html") Examples
+      p Here is the full page example with Virtual List and Searchbar to search through Virtual List items:
+      include:reactSource ../docs-demos/react/virtual-list.jsx

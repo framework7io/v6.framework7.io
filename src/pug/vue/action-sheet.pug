@@ -1,0 +1,168 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Action Sheet Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Action Sheet Vue Component
+    ul.docs-index
+    p Action Sheet is a slide-up pane for presenting the user with a set of alternatives for how to proceed with a given task. You can also use action sheets to prompt the user to confirm a potentially dangerous action. The action sheet contains an optional title and one or more buttons, each of which corresponds to an action to take.
+    p Action Sheet Vue component represents <a href="../docs/action-sheet.html">Action Sheet</a> component.
+    h2 Action Sheet Components
+    p There are following components included:
+    ul
+      li `f7-actions` - action sheet element
+      li `f7-actions-group` - action sheet buttons group
+      li `f7-actions-button` - action sheet button
+      li `f7-actions-label` - action sheet label
+    h2 Action Sheet Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-actions&gt; properties
+        tr
+          td opened
+          td boolean
+          td false
+          td Allows to open/close Action Sheet and set its initial state
+        tr
+          td grid
+          td boolean
+          td false
+          td Enables grid buttons layout
+        tr
+          td convert-to-popover
+          td boolean
+          td
+          td When enabled, action sheet will be converted to Popover on large screens. By default inherits same app parameter value
+        tr
+          td force-to-popover
+          td boolean
+          td
+          td When enabled, action sheet will be always converted to Popover. By default inherits same app parameter value
+        tr
+          td target
+          td HTMLElement<br>string
+          td
+          td HTML element or string CSS selector of target element. Required when conversion to popover is in use
+        tr
+          td backdrop
+          td boolean
+          td
+          td Enables action sheet backdrop (dark semi transparent layer behind). By default inherits same app parameter value (`true`)
+        tr
+          td backdrop-el
+          td string<br>object
+          td
+          td HTML element or string CSS selector of custom backdrop element
+        tr
+          td close-by-backdrop-click
+          td boolean
+          td true
+          td When enabled, action sheet will be closed on backdrop click. By default inherits same app parameter value
+        tr
+          td close-by-outside-click
+          td boolean
+          td false
+          td When enabled, action sheet will be closed on when click outside of it. By default inherits same app parameter value
+        tr
+          td close-on-escape
+          td boolean
+          td
+          td When enabled, action sheet will be closed on ESC keyboard key press
+        tr
+          td animate
+          td boolean
+          td
+          td Whether the modal should be opened/closed with animation or not
+        tr
+          td container-el
+          td HTMLElement<br>string
+          td
+          td Element to mount modal to (default to app root element)
+        tr
+          th(colspan="4") &lt;f7-actions-label&gt; properties
+        tr
+          td bold
+          td boolean
+          td false
+          td Defines whether the label text is bold or not
+        tr
+          th(colspan="4") &lt;f7-actions-button&gt; properties
+        tr
+          td bold
+          td boolean
+          td false
+          td Defines whether the button text is bold or not
+        tr
+          td close
+          td boolean
+          td true
+          td Should Action Sheet be closed on button click or not
+
+    h2 Action Sheet Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-actions&gt; events
+        tr
+          td actions:open
+          td Event will be triggered when Action Sheet starts its opening animation
+        tr
+          td actions:opened
+          td Event will be triggered after Action Sheet completes its opening animation
+        tr
+          td actions:close
+          td Event will be triggered when Action Sheet starts its closing animation
+        tr
+          td actions:closed
+          td Event will be triggered after Action Sheet completes its closing animation
+
+    h2 Action Sheet v-model
+    p Action Sheet component supports `v-model` on `opened` prop:
+    ```html
+      <template>
+        <f7-page>
+          <f7-actions v-model:opened="isOpened">
+            ...
+          </f7-actions>
+          <p>Modal is opened: {{ isOpened }}</p>
+        </f7-page>
+      </template>
+      <script>
+        export default {
+          data() {
+            return {
+              isOpened: false,
+            };
+          }
+        };
+      </script>
+    ```
+
+    h2 Open And Close Action Sheet
+    p In addition to Action Sheet open()/close() methods, you can open and close it:
+    ul
+      li using <a href="../docs/action-sheet.html">Action Sheet API</a>
+      li by passing `true` or `false` to its `opened` prop
+
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/action-sheet.html") Examples
+      include:vueSource ../docs-demos/vue/action-sheet.vue

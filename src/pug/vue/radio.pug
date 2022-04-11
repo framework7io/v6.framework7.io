@@ -1,0 +1,100 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Radio Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Radio Vue Component
+    ul.docs-index
+    p Radio Vue component represents <a href="../docs/radio.html">Radio</a> component.
+    h2 Radio Components
+    p There are following components included:
+    ul
+      li `f7-radio`
+    h2 Radio Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-radio&gt; properties
+        tr
+          td checked
+          td boolean
+          td
+          td Defines whether the radio input is checked or not
+        tr
+          td name
+          td string<br>number
+          td
+          td Radio input name
+        tr
+          td value
+          td string<br>number<br>boolean
+          td
+          td Radio input value
+        tr
+          td disabled
+          td boolean
+          td
+          td Defines whether the radio input is disabled
+        tr
+          td readonly
+          td boolean
+          td
+          td Defines whether the radio input is readonly
+    h2 Radio Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Description
+      tbody
+        tr
+          th(colspan="2") &lt;f7-radio&gt; events
+        tr
+          td change
+          td Event will be triggered when radio input state changed
+    h2 Radios List
+    p Radios List is not a separate component, but just a particular case of using <a href="list-view.html">`<f7-list>`</a>, <a href="list-item.html">`<f7-list-item>`</a>.
+    :code(lang="html")
+      <f7-list>
+        <!-- Additional "radio" prop to enable radio list item -->
+        <f7-list-item radio value="check_1" name="demo-radio" checked title="Radio 1"></f7-list-item>
+        <f7-list-item radio value="check_2" name="demo-radio" title="Radio 2"></f7-list-item>
+      </f7-list>
+    h2 Radio v-model
+    p Radio Vue component supports `v-model` on `checked` property:
+    :code(lang="html")
+      <template>
+        <f7-page>
+          <f7-radio v-model:checked="carsSelected" />
+          <f7-radio v-model:checked="booksSelected" />
+          <p>Cars selected: {{ carsSelected }}</p>
+          <p>Books selected: {{ booksSelected }}</p>
+        </f7-page>
+      </template>
+      <script>
+        export default {
+          data() {
+            return {
+              carsSelected: false,
+              booksSelected: false,
+            };
+          }
+        };
+      </script>
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/radio.html") Examples
+      include:vueSource ../docs-demos/vue/radio.vue

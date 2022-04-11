@@ -1,0 +1,81 @@
+@primaryColor: #EE350F;
+@redColor: #EE350F;
+@pinkColor: #EE0F58;
+@brownColor: #80030C;
+@darkBrownColor: #500308;
+@lightBrownColor: #A00D0F;
+@yellowColor: #FCFF00;
+@blueColor: #0D9EF1;
+@sandColor: #FCDF53;
+@docsCodeRed: #b72f20;
+@docsCodeGreen: #006700;
+
+.monospace() {
+  font-family: 'Roboto Mono', 'Source Code Pro', Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.badge() {
+  background: @blueColor;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 24px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+  height: 18px;
+  border-radius: 9px;
+  padding: 0 5px;
+  + span {
+    margin-left: 5px;
+  }
+}
+.button() {
+  border-radius: 10em;
+  display: inline-block;
+  transition: 200ms;
+  background-color: #f3f3f3;
+  color: #333;
+  text-decoration: none;
+  &:hover {
+    background: @redColor;
+    color: #fff;
+  }
+  &:active {
+    background: @redColor;
+    color: #fff;
+  }
+}
+.solid-button() {
+  background: @redColor;
+  color: #fff;
+  text-align: center;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  font-size: 24px;
+  text-decoration: none;
+  border-radius: 44px;
+  transition: 200ms;
+  font-weight: bold;
+  padding: 0 30px;
+  box-shadow: 0px 10px 20px rgba(red(@redColor), green(@redColor), blue(@redColor), 0.3);
+  &:hover {
+    box-shadow: 0px 10px 20px rgba(red(@redColor), green(@redColor), blue(@redColor), 0.5);
+  }
+  &:active {
+    box-shadow: 0px 5px 10px rgba(red(@redColor), green(@redColor), blue(@redColor), 0.2);
+  }
+}
+.clearfix() {
+  &:before,
+  &:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+  }
+  &:after {
+    clear: both;
+  }
+}

@@ -1,0 +1,214 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'react';
+  - var title = 'Messagebar React Component | Framework7 React Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-react
+  .docs-content
+    +improveDocsLink
+    h1 Messagebar React Component
+    ul.docs-index
+    p Messagebar React component represents Framework7's <a href="../docs/messagebar.html">Messagebar</a> component.
+    h2 Messagebar Components
+    p There are following components included:
+    ul
+      li `Messagebar`  - main messagebar element
+      li `MessagebarSheet`  - messagebar sheet element
+      li `MessagebarSheetImage`  - messagebar sheet image item
+      li `MessagebarSheetItem`  - messagebar sheet item
+      li `MessagebarAttachments`  - messagebar attachments element
+      li `MessagebarAttachment`  - single messagebar attachment element
+    p
+      img(src="/i/docs/messagebar-vue.jpg", style="max-width: 950px; width: 100%")
+    h2 Messagebar Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;Messagebar&gt; properties
+        tr
+          td init
+          td boolean
+          td true
+          td Initializes Messagebar
+        tr
+          td name
+          td string
+          td
+          td Textarea "name" attribute
+        tr
+          td textareaId
+          td string<br>number
+          td
+          td Textarea "id" attribute
+        tr
+          td placeholder
+          td string
+          td Message
+          td Textarea placeholder text
+        tr
+          td value
+          td string<br>number
+          td
+          td Textarea value
+        tr
+          td readonly
+          td boolean
+          td false
+          td Sets "readonly" textarea attribute
+        tr
+          td disabled
+          td boolean
+          td false
+          td Sets "disbled" textarea attribute
+        tr
+          td sendLink
+          td string
+          td
+          td Enables Send link and specifies its text. This property will be ignored in case you use `send-link` slot
+        tr
+          td maxHeight
+          td number
+          td
+          td Defines resizable textarea max height
+        tr
+          td resizable
+          td boolean
+          td true
+          td Enables resizable textarea
+        tr
+          td sheetVisible
+          td boolean
+          td false
+          td Makes messagebar sheet visible/active
+        tr
+          td attachmentsVisible
+          td boolean
+          td false
+          td Makes messagebar attachments visible/active
+        tr
+          td resizePage
+          td boolean
+          td true
+          td When enabled, it will resize messages page when messagebar textarea size changed
+        tr
+          th(colspan="4") &lt;MessagebarSheetImage&gt; properties
+        tr
+          td image
+          td string
+          td
+          td Sheet image URL
+        tr
+          td checked
+          td boolean
+          td false
+          td Indicates whether this sheet image-item is checked or not
+        tr
+          th(colspan="4") &lt;MessagebarAttachment&gt; properties
+        tr
+          td image
+          td string
+          td
+          td Attachment image URL
+        tr
+          td deletable
+          td boolean
+          td true
+          td Defines whether the attachment is deletable or not. In case of deletable the additional delete button will be rendered
+
+    h2 Messagebar Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Arguments
+          th Description
+      tbody
+        tr
+          th(colspan="3") &lt;Messagebar&gt; events
+        tr
+          td change
+          td <span>(event)</span>
+          td Event will be triggered when "change" event occurs on messagebar textarea element
+        tr
+          td input
+          td <span>(event)</span>
+          td Event will be triggered when "input" event occurs on messagebar textarea element
+        tr
+          td focus
+          td <span>(event)</span>
+          td Event will be triggered when "focus" event occurs on messagebar textarea element
+        tr
+          td blur
+          td <span>(event)</span>
+          td Event will be triggered when "blur" event occurs on messagebar textarea element
+        tr
+          td submit<br>send
+          td <span>(value, clear)</span>
+          td Event will be triggered when user clicks on messagebar "send link"
+        tr
+          th(colspan="3") &lt;MessagebarSheetImage&gt; events
+        tr
+          td change
+          td <span>(event)</span>
+          td Event will be triggered on sheet item checkbox change
+        tr
+          th(colspan="3") &lt;MessagebarAttachment&gt; events
+        tr
+          td attachmentClick
+          td <span>(event)</span>
+          td Event will be triggered on attachment click
+        tr
+          td attachmentDelete
+          td <span>(event)</span>
+          td Event will be triggered on attachment delete button click
+    h2 Messagebar Slots
+    p Messagebar React component has additional slots for custom elements:
+    ul
+      li `default` - element will be inserted in the end of `<div class="toolbar-inner">`. element
+      li `before-area` - element will be inserted right before textarea. Messagebar attachments go here
+      li `after-area` - element will be inserted right after textarea
+      li `send-link` - element will be inserted inside of send link
+      li `before-inner` - element will be inserted right before `<div class="toolbar-inner">`. element
+      li `after-inner` - element will be inserted right after `<div class="toolbar-inner">`. element. Messagebar sheet goes here
+      li `inner-start` - element will be inserted in the beginning of `<div class="toolbar-inner">`. element
+      li `inner-end` - element will be inserted in the end of `<div class="toolbar-inner">`. element. Same as `default` slot
+    :code(lang="jsx")
+          <Messagebar placeholder="Message" onSubmit="this.onSubmit">
+            <div slot="before-inner">Before inner</div>
+            <div slot="after-inner">After inner</div>
+            <div slot="before-area">Before textarea</div>
+            <div slot="after-area">After textarea</div>
+            <Icon ios="f7:arrow_up_fill" aurora="f7:arrow_up_fill" md="material:send" slot="send-link"></Icon>
+            <div>Default slot</div>
+          </Messagebar>
+    p Renders to:
+    :code
+          <div class="toolbar messagebar">
+            <div>Before inner</div>
+            <div class="toolbar-inner">
+              <div class="messagebar-area">
+                <div>Before textarea</div>
+                <textarea placeholder="Message"></textarea>
+                <div>After textarea</div>
+              </div>
+              <a href="#" class="link"><i class="icon f7-icons">arrow_up_fill</i></a>
+              <div>Default slot</div>
+            </div>
+            <div>After inner</div>
+          </div>
+
+    .with-device
+      h2(data-device-preview="../docs-demos/react/messages.html") Examples
+      p Here is how the full example of Messages page where it can be used together with <a href="messages.html">Messages</a>:
+      include:reactSource ../docs-demos/react/messages.jsx

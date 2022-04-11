@@ -1,0 +1,97 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'List Index Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 List Index Vue Component
+    ul.docs-index
+    p List Index Vue component represents <a href="../docs/list-index.html">List Index</a> component.
+    h2 List Index Components
+    p There are following components included:
+    ul
+      li `f7-list-index`
+    h2 List Index Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-list-index&gt; properties
+        tr
+          td init
+          td boolean
+          td true
+          td Initializes List Index
+        tr
+          td list-el
+          td object<br>string
+          td
+          td Related List View element. HTMLElement or string with CSS selector of List View element
+        tr
+          td indexes
+          td array<br>string
+          td auto
+          td Array with indexes. If not passed then it will automatically generate it based on `item-divider` and `list-group-title` elements inside of passed List View element in `listEl` parameter
+        tr
+          td scroll-list
+          td boolean
+          td true
+          td Will automatically scroll related List View to the selected index
+        tr
+          td label
+          td boolean
+          td false
+          td Enables label bubble with selected index when you swipe over list index
+        tr
+          td ios-item-height
+          td number
+          td 14
+          td Single index item height. It is required to calculate dynamic index and how many indexes fit on the screen. For iOS theme
+        tr
+          td md-item-height
+          td number
+          td 14
+          td Single index item height. It is required to calculate dynamic index and how many indexes fit on the screen. For MD theme
+        tr
+          td aurora-item-height
+          td number
+          td 14
+          td Single index item height. It is required to calculate dynamic index and how many indexes fit on the screen. For Aurora theme
+    h2 List Index Events
+    table.events-table
+      thead
+        tr
+          th Event
+          th Arguments
+          th Description
+      tbody
+        tr
+          th(colspan="3") &lt;f7-list-index&gt; events
+        tr
+          td listindex:select
+          td <span>(itemContent)</span>
+          td Event will be triggered on index select rather by click or swiping. As an argument event handler receives selected index item content
+    h2 List Index Methods
+    table.methods-table
+        tr
+          th(colspan="2") &lt;f7-list-index&gt; methods
+        tr
+          td .update()
+          td Recalculates indexes, sizes and rerenders list index
+        tr
+          td .scrollListToIndex(<span>itemContent</span>)
+          td Scrolls related list to specified index content
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/list-index.html") Examples
+      include:vueSource ../docs-demos/vue/list-index.vue

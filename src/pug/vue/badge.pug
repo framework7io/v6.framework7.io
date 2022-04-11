@@ -1,0 +1,44 @@
+extends ../_docs-template
+
+block vars
+  - var activeLink = 'vue';
+  - var title = 'Badge Vue Component | Framework7 Vue Documentation';
+
+block content
+  include ../_docs-demo-device
+
+  .docs-nav
+    include ../_docs-menu-vue
+  .docs-content
+    +improveDocsLink
+    h1 Badge Vue Component
+    ul.docs-index
+    p Badge Vue component represents <a href="../docs/badge.html">Badge</a> element that can be used in lists, links, navigation bars, etc.
+    h2 Badge Components
+    p There are following components included:
+    ul
+      li `f7-badge`
+    h2 Badge Properties
+    table.params-table
+      thead
+        tr
+          th Prop
+          th Type
+          th Default
+          th Description
+      tbody
+        tr
+          th(colspan="4") &lt;f7-badge&gt; properties
+        tr
+          td tooltip
+          td string
+          td
+          td <a href="../docs/tooltip.html">tooltip</a> text to show on hover/press
+        tr
+          td tooltip-trigger
+          td string
+          td hover
+          td Defines how to trigger (open) Tooltip. Can be `hover`, `click` or `manual`
+    .with-device
+      h2(data-device-preview="../docs-demos/vue/badge.html") Examples
+      include:vueSource ../docs-demos/vue/badge.vue
